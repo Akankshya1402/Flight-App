@@ -1,0 +1,3 @@
+[submodule "FlightApp-Backend"]
+	path = FlightApp-Backend
+	url = https://github.com/Akankshya1402/Flight-App-Backend.git

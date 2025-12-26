@@ -1,0 +1,133 @@
+/* NAVBAR WRAPPER */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #0b3c5d, #06283d);
+  color: #ffffff;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* LOGO */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* NAV LINKS */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+/* underline hover animation */
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.25s ease;
+}
+
+.navbar ul li a:hover {
+  color: #ffffff;
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE LINK */
+.navbar ul li a.active {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.navbar ul li a.active::after {
+  width: 100%;
+}
+
+/* RIGHT SECTION */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* EMAIL */
+.email {
+  font-size: 13px;
+  color: #d1d5db;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* LOGOUT BUTTON */
+button {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(239, 68, 68, 0.45);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 12px 18px;
+  }
+
+  .navbar ul {
+    gap: 16px;
+  }
+
+  .email {
+    display: none; /* clean mobile look */
+  }
+}

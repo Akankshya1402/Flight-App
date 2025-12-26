@@ -1,0 +1,30 @@
+<h3 class="title">Select Your Seats</h3>
+
+<div class="legend">
+  <span class="available">Available</span>
+  <span class="selected">Selected</span>
+  <span class="booked">Booked</span>
+</div>
+
+<div class="seat-map">
+  <button
+    *ngFor="let seat of seats"
+    [disabled]="seat.status === 'BOOKED'"
+    [ngClass]="seat.status.toLowerCase()"
+    (click)="toggleSeat(seat)">
+    {{ seat.seatNumber }}
+    <small *ngIf="seat.price > 0">₹{{ seat.price }}</small>
+  </button>
+</div>
+
+<div class="summary">
+  <div>Seats selected: {{ selectedSeats.length }} / {{ passengerCount }}</div>
+  <div>Seat charges: ₹{{ totalSeatPrice() }}</div>
+</div>
+
+<button
+  class="confirm-btn"
+  [disabled]="selectedSeats.length !== passengerCount"
+  (click)="confirmSeats()">
+  Confirm Seats
+</button>

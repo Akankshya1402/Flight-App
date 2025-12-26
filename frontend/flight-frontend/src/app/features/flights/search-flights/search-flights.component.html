@@ -1,0 +1,54 @@
+<div class="search-container">
+  <h2>So Where You Headed?</h2>
+
+  <!-- From / To -->
+  <input
+    placeholder="From ✈️"
+    [(ngModel)]="fromPlace"
+    required
+  />
+
+  <input
+    placeholder="To 🛬"
+    [(ngModel)]="toPlace"
+    required
+  />
+
+  <!-- Departure Date -->
+  <input
+    type="datetime-local"
+    [(ngModel)]="departureDate"
+    required
+  />
+
+  <!-- 🔁 ROUND TRIP (VISUAL ONLY) -->
+  <select class="roundtrip-select">
+    <option value="NO">Round Trip? — No</option>
+    <option value="YES">Round Trip? — Yes</option>
+  </select>
+
+  <!-- Seats -->
+  <input
+    type="number"
+    min="1"
+    placeholder="Passengers"
+    [(ngModel)]="numberOfSeats"
+    required
+  />
+
+  <!-- Search -->
+  <button (click)="search()">Search</button>
+
+  <!-- Error -->
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <!-- RESULTS -->
+  <div class="flight-card" *ngFor="let flight of flights">
+    <h3>{{ flight.airline.name }} ({{ flight.flightNumber }})</h3>
+    <p>{{ flight.fromPlace }} → {{ flight.toPlace }}</p>
+    <p>Departure: {{ flight.departureDateTime }}</p>
+    <p>Price: ₹{{ flight.priceOneWay }}</p>
+    <p>Seats left: {{ flight.availableSeats }}</p>
+    <button (click)="book(flight.airline.id)">Book Now</button>
+  </div>
+</div>

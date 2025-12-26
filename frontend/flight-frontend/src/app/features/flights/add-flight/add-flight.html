@@ -1,0 +1,97 @@
+<div class="add-flight-container">
+  <h2>Add New Flight ✈️ (Admin)</h2>
+
+  <form (ngSubmit)="addFlight()" #flightForm="ngForm">
+
+    <div class="form-group">
+      <label>Airline Name</label>
+      <input
+        type="text"
+        name="airline"
+        [(ngModel)]="flight.airline"
+        placeholder="Air India"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Flight Number</label>
+      <input
+        type="text"
+        name="flightNumber"
+        [(ngModel)]="flight.flightNumber"
+        placeholder="AI-27"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>From</label>
+      <input
+        type="text"
+        name="fromPlace"
+        [(ngModel)]="flight.fromPlace"
+        placeholder="BLR"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>To</label>
+      <input
+        type="text"
+        name="toPlace"
+        [(ngModel)]="flight.toPlace"
+        placeholder="DEL"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Departure Date & Time</label>
+      <input
+        type="datetime-local"
+        name="departureDateTime"
+        [(ngModel)]="flight.departureDateTime"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Arrival Date & Time</label>
+      <input
+        type="datetime-local"
+        name="arrivalDateTime"
+        [(ngModel)]="flight.arrivalDateTime"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Price (One Way)</label>
+      <input
+        type="number"
+        name="priceOneWay"
+        [(ngModel)]="flight.priceOneWay"
+        placeholder="2000"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Total Seats</label>
+      <input
+        type="number"
+        name="totalSeats"
+        [(ngModel)]="flight.totalSeats"
+        placeholder="180"
+        required
+      />
+    </div>
+
+    <button type="submit" [disabled]="flightForm.invalid">
+      Add Flight
+    </button>
+
+  </form>
+</div>

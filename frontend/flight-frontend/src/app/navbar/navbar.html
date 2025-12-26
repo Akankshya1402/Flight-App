@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <div class="logo">FLIGHT APP</div>
+
+  <ul>
+    <li><a routerLink="/search-flights">Search</a></li>
+    <li><a routerLink="/view-booking">Booking History</a></li>
+
+    <!-- 🔐 ADMIN ONLY -->
+    <li *ngIf="authService.isAdmin()">
+  <a routerLink="/add-flight" routerLinkActive="active">
+    Add Flight
+  </a>
+</li>
+
+
+    <li>
+      <a (click)="changePassword()">Change Password</a>
+    </li>
+  </ul>
+
+  <div class="right">
+    <span class="email">{{ email }}</span>
+    <button (click)="logout()">Logout</button>
+  </div>
+</nav>

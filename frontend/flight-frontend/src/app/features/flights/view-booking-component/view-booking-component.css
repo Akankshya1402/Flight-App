@@ -1,0 +1,234 @@
+/* =========================
+   PAGE BACKGROUND
+========================= */
+:host {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1.5rem;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(34, 197, 94, 0.25),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../../../assets/images/flight-bg3.jpg");
+
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+.booking-history-container {
+  width: 100%;
+  max-width: 960px;
+  padding: 2.8rem 2.8rem;
+
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* =========================
+   HEADING
+========================= */
+.booking-history-container h2 {
+  text-align: center;
+  margin-bottom: 1.8rem;
+
+  font-size: 28px;
+  font-weight: 800;
+
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   FETCH BUTTON
+========================= */
+.fetch-btn {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 10px 26px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 12px rgba(34, 197, 94, 0.6),
+    0 6px 18px rgba(34, 197, 94, 0.45);
+
+  transition: all 0.2s ease;
+}
+
+.fetch-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 18px rgba(34, 197, 94, 0.85),
+    0 10px 26px rgba(34, 197, 94, 0.6);
+}
+
+/* =========================
+   STATES
+========================= */
+.error {
+  text-align: center;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.empty {
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+/* =========================
+   BOOKING CARD
+========================= */
+.booking-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem 2rem;
+  margin-bottom: 1.8rem;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.12);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================
+   CARD HEADER
+========================= */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* =========================
+   STATUS BADGE
+========================= */
+.status {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status.cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* =========================
+   CARD BODY
+========================= */
+.card-body p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* =========================
+   CANCEL BUTTON (DANGER)
+========================= */
+.cancel-btn {
+  margin-top: 16px;
+  padding: 8px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 10px rgba(239, 68, 68, 0.5);
+
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 16px rgba(239, 68, 68, 0.75);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 600px) {
+  .booking-history-container {
+    padding: 2rem 1.6rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

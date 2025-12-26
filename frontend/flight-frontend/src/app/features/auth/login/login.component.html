@@ -1,0 +1,48 @@
+<div class="login-container">
+  <h1>Fly With Us</h1>
+
+  <!-- Email -->
+  <input
+    type="email"
+    placeholder="Email"
+    [(ngModel)]="email"
+    name="email"
+    required
+    #emailRef="ngModel"
+  />
+
+  <p class="error" *ngIf="emailRef.invalid && emailRef.touched">
+    Please enter a valid email address
+  </p>
+
+  <!-- Password -->
+  <input
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="password"
+    name="password"
+    required
+    minlength="3"
+    #passwordRef="ngModel"
+  />
+
+  <p class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
+    Password must be at least 3 characters
+  </p>
+
+  <!-- Submit -->
+  <button
+    (click)="login()"
+    [disabled]="emailRef.invalid || passwordRef.invalid"
+  >
+    Login
+  </button>
+
+  <p>
+    New here?
+    <a routerLink="/register">Register</a>
+  </p>
+
+  <!-- Backend / auth error -->
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>

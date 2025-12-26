@@ -1,0 +1,187 @@
+/* =========================
+   PAGE BACKGROUND (MATCH SEARCH)
+========================= */
+:host {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(34, 197, 94, 0.25),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../../../../assets/images/flight-bg1.jpg"); 
+  background-size: cover;
+  background-position: center;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+/* =========================
+   CARD CONTAINER (LIKE SEARCH)
+========================= */
+.register-container {
+  width: 100%;
+  max-width: 460px;
+  padding: 3rem 3rem;
+
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 22px;
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* =========================
+   HEADING (GREEN GRADIENT)
+========================= */
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 2.4rem;
+
+  font-size: 28px;
+  font-weight: 800;
+
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   INPUTS & SELECT (MATCH SEARCH)
+========================= */
+.register-container input,
+.register-container select {
+  width: 100%;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+
+  border-radius: 12px;
+  border: 1px solid #d1fae5;
+
+  font-size: 14px;
+  font-weight: 600;
+  background: #ffffff;
+
+  transition: all 0.25s ease;
+}
+
+/* focus glow */
+.register-container input:focus,
+.register-container select:focus {
+  outline: none;
+  border-color: #22c55e;
+
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.25);
+}
+
+/* Angular validation */
+input.ng-invalid.ng-touched {
+  border-color: #dc2626;
+}
+
+input.ng-valid.ng-touched {
+  border-color: #16a34a;
+}
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+.error {
+  font-size: 12px;
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   BUTTON (GREEN GLOW LIKE SEARCH)
+========================= */
+.register-container button {
+  display: block;
+  margin: 18px auto 0;
+  padding: 10px 22px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 12px rgba(34, 197, 94, 0.6),
+    0 6px 18px rgba(34, 197, 94, 0.45);
+
+  transition: all 0.2s ease;
+}
+
+.register-container button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 18px rgba(34, 197, 94, 0.85),
+    0 10px 26px rgba(34, 197, 94, 0.6);
+}
+
+.register-container button:disabled {
+  background: #9ca3af;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* =========================
+   BOTTOM TEXT
+========================= */
+.register-container p {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #374151;
+}
+
+.register-container a {
+  color: #16a34a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 480px) {
+  .register-container {
+    padding: 2.2rem 1.8rem;
+  }
+
+  .register-container h2 {
+    font-size: 24px;
+  }
+}

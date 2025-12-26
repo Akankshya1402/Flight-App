@@ -1,0 +1,84 @@
+<div class="register-container">
+  <h2>Create Account</h2>
+
+  <!-- Full Name -->
+  <input
+    type="text"
+    placeholder="Full Name"
+    [(ngModel)]="fullName"
+    name="fullName"
+    required
+    minlength="3"
+    #fullNameRef="ngModel"
+  />
+
+  <p class="error" *ngIf="fullNameRef.invalid && fullNameRef.touched">
+    Full name must be at least 3 characters
+  </p>
+
+  <!-- Email -->
+  <input
+    type="email"
+    placeholder="Email"
+    [(ngModel)]="email"
+    name="email"
+    required
+    #emailRef="ngModel"
+  />
+
+  <p class="error" *ngIf="emailRef.invalid && emailRef.touched">
+    Please enter a valid email address
+  </p>
+
+  <!-- Password -->
+  <input
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="password"
+    name="password"
+    required
+    minlength="3"
+    #passwordRef="ngModel"
+  />
+
+  <p class="error" *ngIf="passwordRef.invalid && passwordRef.touched">
+    Password must be at least 3 characters
+  </p>
+
+  <!-- Role -->
+  <select
+    [(ngModel)]="role"
+    name="role"
+    required
+    #roleRef="ngModel"
+  >
+    <option value="" disabled>Select Role</option>
+    <option value="ROLE_USER">User</option>
+    <option value="ROLE_ADMIN">Admin</option>
+  </select>
+
+  <p class="error" *ngIf="roleRef.invalid && roleRef.touched">
+    Please select a role
+  </p>
+
+  <!-- Submit -->
+  <button
+    (click)="register()"
+    [disabled]="
+      fullNameRef.invalid ||
+      emailRef.invalid ||
+      passwordRef.invalid ||
+      roleRef.invalid
+    "
+  >
+    Register
+  </button>
+
+  <!-- Backend error -->
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <p>
+    Already have an account?
+    <a routerLink="/login">Login</a>
+  </p>
+</div>

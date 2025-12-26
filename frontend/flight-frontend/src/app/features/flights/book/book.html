@@ -1,0 +1,92 @@
+<div class="booking-container">
+  <h2>Flight Booking</h2>
+
+  <div class="system-fields">
+    <label>
+      Flight ID
+      <input type="number" [(ngModel)]="booking.flightId" />
+    </label>
+
+    <label>
+      Full Name
+      <input type="text" [(ngModel)]="booking.userName" />
+    </label>
+
+    <label>
+      Seats
+      <input
+        type="number"
+        [(ngModel)]="booking.numberOfSeats"
+        min="1"
+        (change)="updatePassengers()"
+      />
+    </label>
+  </div>
+
+  <hr />
+
+  <!-- Passenger Details -->
+  <div
+    class="passenger-section"
+    *ngFor="let passenger of booking.passengers; let i = index"
+  >
+    <h3>Passenger {{ i + 1 }}</h3>
+
+    <input
+      type="text"
+      placeholder="Passenger Name"
+      [(ngModel)]="passenger.name"
+      required
+    />
+
+    <input
+      type="number"
+      placeholder="Age"
+      [(ngModel)]="passenger.age"
+      min="1"
+      required
+    />
+
+    <div class="gender-group">
+      <label>
+        <input
+          type="radio"
+          [name]="'gender' + i"
+          value="MALE"
+          [(ngModel)]="passenger.gender"
+        />
+        Male
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          [name]="'gender' + i"
+          value="FEMALE"
+          [(ngModel)]="passenger.gender"
+        />
+        Female
+      </label>
+    </div>
+
+    <div class="inline-fields">
+      <!-- Seat number REMOVED (comes from seat selection) -->
+
+      <input
+        type="text"
+        placeholder="Meal Type (VEG / NON_VEG)"
+        [(ngModel)]="passenger.mealType"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- 🔥 Indigo-level Seat Selection -->
+  <app-seat-selection
+    [passengerCount]="booking.numberOfSeats"
+    [bookedSeats]="alreadyBookedSeats"
+    (seatsConfirmed)="onSeatsConfirmed($event)">
+  </app-seat-selection>
+
+  <button (click)="bookFlight()">Confirm Booking</button>
+</div>
