@@ -51,8 +51,8 @@ pipeline {
 
         stage('Build Frontend') {
             steps {
-                dir('frontend') {
-                    sh 'npm install'
+                dir('frontend/flight-frontend') {
+                    sh 'npm ci'
                     sh 'npm run build'
                 }
             }
