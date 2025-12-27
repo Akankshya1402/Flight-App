@@ -9,9 +9,41 @@ pipeline {
             }
         }
 
-        stage('Build Backend') {
+        stage('Build API Gateway') {
             steps {
-                dir('backend') {
+                dir('backend/api-gateway') {
+                    sh 'mvn clean package -DskipTests'
+                }
+            }
+        }
+
+        stage('Build Booking Service') {
+            steps {
+                dir('backend/booking-service') {
+                    sh 'mvn clean package -DskipTests'
+                }
+            }
+        }
+
+        stage('Build Config Server') {
+            steps {
+                dir('backend/config-server') {
+                    sh 'mvn clean package -DskipTests'
+                }
+            }
+        }
+
+        stage('Build Eureka Server') {
+            steps {
+                dir('backend/eureka-server') {
+                    sh 'mvn clean package -DskipTests'
+                }
+            }
+        }
+
+        stage('Build Flight Service') {
+            steps {
+                dir('backend/flight-service') {
                     sh 'mvn clean package -DskipTests'
                 }
             }
@@ -29,7 +61,7 @@ pipeline {
 
     post {
         success {
-            echo '✅ Build successful'
+            echo '✅ All microservices and frontend built successfully'
         }
         failure {
             echo '❌ Build failed'
